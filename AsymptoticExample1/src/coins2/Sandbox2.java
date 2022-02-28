@@ -21,6 +21,7 @@ public class Sandbox2 {
     }
 
     public static void main(String[] args) {
+        long startTime = System.nanoTime();
         enumerate("", 0, 0, 42);
 
         int minCoinsCount = Integer.MAX_VALUE;
@@ -31,6 +32,11 @@ public class Sandbox2 {
                 bestVariant = entry.getKey();
             }
         }
+        long endTime = System.nanoTime();
+
+        System.out.print("TIME: ");
+        System.out.print((endTime - startTime) / 1e6);
+        System.out.println();
 
         System.out.println(bestVariant);
     }

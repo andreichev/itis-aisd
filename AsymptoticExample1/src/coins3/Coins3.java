@@ -35,6 +35,7 @@ public class Coins3 {
     }
 
     public static void main(String[] args) {
+        long startTime = System.nanoTime();
         int sum = 42;
         Variant[] variants = new Variant[sum + 1];
         variants[0] = new Variant(new int[] {});
@@ -82,6 +83,10 @@ public class Coins3 {
             }
             variants[i] = getMinSize(tempVariants);
         }
+        long endTime = System.nanoTime();
+        System.out.print("TIME: ");
+        System.out.print((endTime - startTime) / 1e6);
+        System.out.println();
 
         System.out.println(variants[sum]);
     }
