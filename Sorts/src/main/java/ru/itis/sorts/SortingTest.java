@@ -1,10 +1,11 @@
 package ru.itis.sorts;
 
+import ru.itis.sorts.bubble_sort.BubbleSort;
 import ru.itis.sorts.merge_sort.MergeSort;
 
 public class SortingTest {
-    static final int ARRAY_SIZE = 10;
-    static final boolean PRINT_ARRAY = true;
+    static final int ARRAY_SIZE = 1000;
+    static final boolean PRINT_ARRAY = false;
 
     static <T> void fillArray(RandomElementGenerator<T> generator, T[] array) {
         for(int i = 0; i < array.length; i++) {
@@ -22,13 +23,13 @@ public class SortingTest {
 
     public static void main(String[] args) {
         Integer[] array = new Integer[ARRAY_SIZE];
-        fillArray(index -> ARRAY_SIZE - index, array);
+        fillArray(index -> (int) (Math.random() * 100), array);
         if(PRINT_ARRAY) {
             printArray(array);
         }
 
         long startTime = System.nanoTime();
-        Sorting<Integer> sorting = new MergeSort<>();
+        Sorting<Integer> sorting = new BubbleSort<>();
         sorting.sort(array, Integer::compareTo);
         long endTime = System.nanoTime();
 
