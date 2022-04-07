@@ -29,8 +29,8 @@ public class SortingTest {
         }
 
         long startTime = System.nanoTime();
-        Sorting<Integer> sorting = new BubbleSort<>();
-        sorting.sort(array, Integer::compareTo);
+        Sorting<Integer> sorting = new MergeSort<>();
+        sorting.sort(array, Integer::compare);
         long endTime = System.nanoTime();
 
         if(PRINT_ARRAY) {
